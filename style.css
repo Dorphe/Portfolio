@@ -413,18 +413,18 @@ a {
 
 /* Headings */
 .project-h2 {
-  font-family: var(--font);
-  font-size: 22px;
-  line-height: 28px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 26px;
+  line-height: 32px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 16px;
 }
 
 .project-h3 {
-  font-family: var(--font);
-  font-size: 18px;
-  line-height: 24px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 28px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 12px;
@@ -432,9 +432,9 @@ a {
 
 /* Body text */
 .project-body {
-  font-family: var(--font);
-  font-size: 17px;
-  line-height: 27px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 32px;
   font-weight: 400;
   color: var(--ink);
 }
@@ -449,9 +449,9 @@ a {
 }
 
 .project-list li {
-  font-family: var(--font);
-  font-size: 17px;
-  line-height: 27px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 32px;
   font-weight: 400;
   color: var(--ink);
   padding-left: 20px;
@@ -494,16 +494,16 @@ a {
 
 .feature-title {
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 17px;
-  line-height: 27px;
+  font-size: 20px;
+  line-height: 32px;
   font-weight: 700;
   color: var(--ink);
 }
 
 .feature-body {
-  font-family: var(--font);
-  font-size: 17px;
-  line-height: 27px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 32px;
   font-weight: 400;
   color: var(--ink);
 }
@@ -513,15 +513,15 @@ a {
   width: 100%;
   border-collapse: collapse;
   margin-top: 24px;
-  font-family: var(--font);
-  font-size: 15px;
-  line-height: 22px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .project-table th {
   text-align: left;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
@@ -531,7 +531,7 @@ a {
 }
 
 .project-table td {
-  padding: 14px 16px 14px 0;
+  padding: 16px 16px 16px 0;
   border-bottom: 1px solid rgba(71, 71, 53, 0.08);
   vertical-align: top;
   color: var(--ink);
@@ -556,9 +556,9 @@ a {
   margin-top: 20px;
   padding: 20px 24px;
   border-left: 3px solid rgba(71, 71, 53, 0.2);
-  font-family: var(--font);
-  font-size: 16px;
-  line-height: 26px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 30px;
   font-style: italic;
   color: var(--ink);
   opacity: 0.75;
