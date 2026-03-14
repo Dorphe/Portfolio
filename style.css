@@ -303,6 +303,238 @@ a {
 }
 
 /* =============================================
+   PROJECT PAGE — NAV
+   ============================================= */
+
+.project-nav {
+  padding: var(--pad) var(--pad) 0;
+  opacity: 0;
+  animation: fadeIn 0.6s var(--ease-out) 0.1s forwards;
+}
+
+.project-nav-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+  transition: opacity 0.2s;
+}
+
+.project-nav-link:hover {
+  opacity: 0.6;
+}
+
+.project-nav-arrow {
+  font-size: 16px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+/* =============================================
+   PROJECT PAGE — CONTENT COLUMN
+   ============================================= */
+
+.project-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) var(--pad) clamp(4rem, 8vw, 6rem);
+  opacity: 0;
+  animation: fadeIn 0.6s var(--ease-out) 0.25s forwards;
+}
+
+/* Hero */
+.project-hero {
+  margin-bottom: 0;
+}
+
+.project-kicker {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+
+.project-h1 {
+  font-family: var(--font);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.project-intro {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* Section spacing */
+.project-section {
+  margin-top: 64px;
+}
+
+/* Two-column grid */
+.project-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Headings */
+.project-h2 {
+  font-family: var(--font);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.project-h3 {
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+/* Body text */
+.project-body {
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* Lists */
+.project-list {
+  list-style: none;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-list li {
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  color: var(--ink);
+  padding-left: 20px;
+  position: relative;
+}
+
+.project-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--ink);
+  opacity: 0.35;
+}
+
+.project-list--ordered {
+  counter-reset: ol-counter;
+}
+
+.project-list--ordered li {
+  counter-increment: ol-counter;
+}
+
+.project-list--ordered li::before {
+  content: counter(ol-counter) '.';
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+/* KPI table */
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.project-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.5;
+  padding: 10px 16px 10px 0;
+  border-bottom: 1px solid rgba(71, 71, 53, 0.15);
+}
+
+.project-table td {
+  padding: 14px 16px 14px 0;
+  border-bottom: 1px solid rgba(71, 71, 53, 0.08);
+  vertical-align: top;
+  color: var(--ink);
+}
+
+.project-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Challenge blocks */
+.project-challenge {
+  margin-top: 48px;
+}
+
+.project-challenge + .project-challenge {
+  padding-top: 48px;
+  border-top: 1px solid rgba(71, 71, 53, 0.08);
+}
+
+/* Blockquote */
+.project-quote {
+  margin-top: 20px;
+  padding: 20px 24px;
+  border-left: 3px solid rgba(71, 71, 53, 0.2);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 26px;
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.75;
+  background-color: rgba(71, 71, 53, 0.03);
+}
+
+/* =============================================
+   PROJECT PAGE — RESPONSIVE
+   ============================================= */
+
+@media (max-width: 640px) {
+  .project-two-col {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .project-h1 {
+    font-size: 1.75rem;
+  }
+
+  .project-section {
+    margin-top: 48px;
+  }
+}
+
+/* =============================================
    REDUCED MOTION
    ============================================= */
 
