@@ -6,11 +6,21 @@
   --bg:       #FFFFFF;
   --ink:      #474735;
   --card-bg:  #F5F5F5;
-  --font:     "BIZ UDMincho", system-ui, serif;
 
+  /* Font stacks */
+  --font:         "BIZ UDMincho", system-ui, serif;   /* display / hero */
+  --font-display: "BIZ UDMincho", system-ui, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+
+  /* Layout */
   --pad:      32px;
   --gap:      32px;
   --col-info: 512px;
+
+  /* Project page spacing rhythm */
+  --space-section: 80px;   /* between major sections */
+  --space-block:   48px;   /* between sub-sections / challenge items */
+  --space-item:    16px;   /* heading → body, body → body */
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -316,7 +326,7 @@ a {
   display: inline-flex;
   flex-direction: row;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
   transition: opacity 0.2s;
 }
 
@@ -324,33 +334,32 @@ a {
   opacity: 0.6;
 }
 
-.project-nav-back {
-  font-family: var(--font);
-  font-size: 20px;
+.project-nav-arrow {
+  font-size: 16px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.project-nav-name {
+  font-family: var(--font-display);
+  font-size: 18px;
   line-height: 24px;
   font-weight: 700;
   color: var(--ink);
 }
 
 /* =============================================
-   PROJECT PAGE — CONTENT COLUMN
+   PROJECT PAGE — HERO
    ============================================= */
 
-.project-page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem) var(--pad) clamp(4rem, 8vw, 6rem);
-  opacity: 0;
-  animation: fadeIn 0.6s var(--ease-out) 0.25s forwards;
-}
-
-/* Hero */
 .project-hero {
   width: 100%;
   height: 70vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 0.6s var(--ease-out) 0.2s forwards;
 }
 
 .project-hero--split .project-hero-inner {
@@ -367,27 +376,27 @@ a {
   justify-content: center;
   gap: 20px;
   flex: 1;
-  padding: 0 32px;
+  padding: 0 var(--pad);
 }
 
 .project-hero-image {
   flex: 1;
-  background-color: #F5F5F5;
+  background-color: var(--card-bg);
 }
 
 .project-kicker {
-  font-family: var(--font);
-  font-size: 14px;
+  font-family: var(--font-display);
+  font-size: 13px;
   line-height: 20px;
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 .project-h1 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 60px;
   line-height: 1.05;
   font-weight: 700;
@@ -395,7 +404,7 @@ a {
 }
 
 .project-intro {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 24px;
   line-height: 36px;
   font-weight: 400;
@@ -403,9 +412,21 @@ a {
   max-width: 800px;
 }
 
+/* =============================================
+   PROJECT PAGE — CONTENT COLUMN
+   ============================================= */
+
+.project-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) var(--pad) clamp(4rem, 8vw, 6rem);
+  opacity: 0;
+  animation: fadeIn 0.6s var(--ease-out) 0.35s forwards;
+}
+
 /* Section spacing */
 .project-section {
-  margin-top: 64px;
+  margin-top: var(--space-section);
 }
 
 /* Two-column grid */
@@ -416,50 +437,64 @@ a {
   align-items: start;
 }
 
-/* Headings */
+/* =============================================
+   PROJECT PAGE — TYPOGRAPHY
+   ============================================= */
+
 .project-h2 {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 26px;
   line-height: 32px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-item);
 }
 
 .project-h3 {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: var(--space-item);
 }
 
-/* Body text */
 .project-body {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
   color: var(--ink);
 }
 
-/* Lists */
+/* Auto-spacing between consecutive content elements */
+.project-body + .project-body,
+.project-body + .project-list,
+.project-body + .project-feature,
+.project-list  + .project-body,
+.project-h3    + .project-list,
+.project-h3    + .project-feature {
+  margin-top: var(--space-item);
+}
+
+/* =============================================
+   PROJECT PAGE — LISTS
+   ============================================= */
+
 .project-list {
   list-style: none;
-  margin-top: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .project-list li {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
   color: var(--ink);
-  padding-left: 20px;
+  padding-left: 22px;
   position: relative;
 }
 
@@ -468,7 +503,7 @@ a {
   position: absolute;
   left: 0;
   color: var(--ink);
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
 .project-list--ordered {
@@ -482,43 +517,48 @@ a {
 .project-list--ordered li::before {
   content: counter(ol-counter) '.';
   font-weight: 700;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
-/* Feature list — title above body, no bullet */
-.project-list--features li {
+/* =============================================
+   PROJECT PAGE — FEATURE BLOCK
+   ============================================= */
+
+.project-feature {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding-left: 0;
 }
 
-.project-list--features li::before {
-  display: none;
+.project-feature + .project-feature {
+  margin-top: var(--space-item);
 }
 
-.feature-title {
-  font-family: "Inter", system-ui, sans-serif;
+.project-feature__title {
+  font-family: var(--font-body);
   font-size: 20px;
   line-height: 32px;
   font-weight: 700;
   color: var(--ink);
 }
 
-.feature-body {
-  font-family: "Inter", system-ui, sans-serif;
+.project-feature__body {
+  font-family: var(--font-body);
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
   color: var(--ink);
 }
 
-/* KPI table */
+/* =============================================
+   PROJECT PAGE — TABLE
+   ============================================= */
+
 .project-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 24px;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   line-height: 28px;
 }
@@ -526,11 +566,11 @@ a {
 .project-table th {
   text-align: left;
   font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: 0.5;
+  opacity: 0.45;
   padding: 10px 16px 10px 0;
   border-bottom: 1px solid rgba(71, 71, 53, 0.15);
 }
@@ -546,22 +586,28 @@ a {
   border-bottom: none;
 }
 
-/* Challenge blocks */
+/* =============================================
+   PROJECT PAGE — CHALLENGE BLOCKS
+   ============================================= */
+
 .project-challenge {
-  margin-top: 48px;
+  margin-top: var(--space-block);
 }
 
 .project-challenge + .project-challenge {
-  padding-top: 48px;
+  padding-top: var(--space-block);
   border-top: 1px solid rgba(71, 71, 53, 0.08);
 }
 
-/* Blockquote */
+/* =============================================
+   PROJECT PAGE — BLOCKQUOTE
+   ============================================= */
+
 .project-quote {
   margin-top: 20px;
   padding: 20px 24px;
-  border-left: 3px solid rgba(71, 71, 53, 0.2);
-  font-family: "Inter", system-ui, sans-serif;
+  border-left: 3px solid rgba(71, 71, 53, 0.18);
+  font-family: var(--font-body);
   font-size: 19px;
   line-height: 30px;
   font-style: italic;
@@ -577,7 +623,7 @@ a {
 @media (max-width: 640px) {
   .project-two-col {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--space-block);
   }
 
   .project-hero--split .project-hero-inner {
@@ -589,7 +635,7 @@ a {
   }
 
   .project-hero-text {
-    padding: 48px 20px 32px;
+    padding: 48px var(--pad) 32px;
   }
 
   .project-hero-image {
@@ -602,7 +648,7 @@ a {
   }
 
   .project-section {
-    margin-top: 48px;
+    margin-top: var(--space-block);
   }
 }
 

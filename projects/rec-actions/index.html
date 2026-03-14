@@ -17,7 +17,7 @@
   <div class="project-nav">
     <a href="../../" class="project-nav-link">
       <span class="project-nav-arrow" aria-hidden="true">←</span>
-      <span class="project-nav-back">Back</span>
+      <span class="project-nav-name">Mathieu Preston</span>
     </a>
   </div>
 
@@ -34,46 +34,46 @@
 
   <article class="project-page">
 
-    <!-- Problem + Hypothesis -->
-    <div class="project-section">
-      <section>
-        <h2 class="project-h2">The problem</h2>
-        <p class="project-body">Technicians frequently receive work orders with minimal documentation. Without easy access to machine history or specific manuals, they spend significant time:</p>
-        <ul class="project-list">
-          <li>Manually searching through physical manuals or old reports.</li>
-          <li>Attempting standard procedures when a specific, historical fault might be the actual culprit.</li>
-          <li>Flagging down supervisors or senior techs to fill in the blanks.</li>
-        </ul>
-        <p class="project-body" style="margin-top: 1em;">All of the above ends up compounding into high <strong>MTTR (mean time to repair)</strong>, increasing operational costs significantly.</p>
-      </section>
+    <!-- Problem -->
+    <section class="project-section">
+      <h2 class="project-h2">The problem</h2>
+      <p class="project-body">Technicians frequently receive work orders with minimal documentation. Without easy access to machine history or specific manuals, they spend significant time:</p>
+      <ul class="project-list">
+        <li>Manually searching through physical manuals or old reports.</li>
+        <li>Attempting standard procedures when a specific, historical fault might be the actual culprit.</li>
+        <li>Flagging down supervisors or senior techs to fill in the blanks.</li>
+      </ul>
+      <p class="project-body">All of the above ends up compounding into high <strong>MTTR (mean time to repair)</strong>, increasing operational costs significantly.</p>
+    </section>
 
-      <section style="margin-top: 48px;">
-        <h2 class="project-h2">The hypothesis</h2>
-        <p class="project-body">By synthesizing work order history, comments, and manuals, we can provide <strong>AI-recommended actions</strong> directly within the work order.</p>
-        <p class="project-body" style="margin-top: 1em;">If we surface specific shortcuts, such as identifying a recurring fault seen in similar machines, we can help technicians bypass generic troubleshooting and move straight to the solution, saving hours of labor per job.</p>
-      </section>
-    </div>
+    <!-- Hypothesis -->
+    <section class="project-section">
+      <h2 class="project-h2">The hypothesis</h2>
+      <p class="project-body">By synthesizing work order history, comments, and manuals, we can provide <strong>AI-recommended actions</strong> directly within the work order.</p>
+      <p class="project-body">If we surface specific shortcuts, such as identifying a recurring fault seen in similar machines, we can help technicians bypass generic troubleshooting and move straight to the solution, saving hours of labor per job.</p>
+    </section>
 
     <!-- Solution -->
     <section class="project-section">
       <h2 class="project-h2">The Solution: Intelligence at the point of work</h2>
       <p class="project-body">When technicians start working on a specific repair, they are introduced to <strong>Recommended actions</strong> integrated directly in their work execution user journey, ensuring they have exactly what they need, when they need it.</p>
 
-      <h3 class="project-h3" style="margin-top: 2em;">Key Features</h3>
-      <ul class="project-list project-list--features">
-        <li>
-          <strong class="feature-title">Historical pattern recognition</strong>
-          <span class="feature-body">The AI flags if this specific machine (or similar models in the organization) has failed in this way before, and surfaces the information if relevant.</span>
-        </li>
-        <li>
-          <strong class="feature-title">Trustworthy sources</strong>
-          <span class="feature-body">Instead of having to sift through a 200-page PDF, technicians are presented with the specific, verified information relevant to the reported fault, straight from the manual.</span>
-        </li>
-        <li>
-          <strong class="feature-title">Peer insights</strong>
-          <span class="feature-body">Surfacing comments from previous interventions that faced similar issues, turning tribal knowledge into a shared company asset.</span>
-        </li>
-      </ul>
+      <h3 class="project-h3">Key Features</h3>
+
+      <div class="project-feature">
+        <strong class="project-feature__title">Historical pattern recognition</strong>
+        <span class="project-feature__body">The AI flags if this specific machine (or similar models in the organization) has failed in this way before, and surfaces the information if relevant.</span>
+      </div>
+
+      <div class="project-feature">
+        <strong class="project-feature__title">Trustworthy sources</strong>
+        <span class="project-feature__body">Instead of having to sift through a 200-page PDF, technicians are presented with the specific, verified information relevant to the reported fault, straight from the manual.</span>
+      </div>
+
+      <div class="project-feature">
+        <strong class="project-feature__title">Peer insights</strong>
+        <span class="project-feature__body">Surfacing comments from previous interventions that faced similar issues, turning tribal knowledge into a shared company asset.</span>
+      </div>
     </section>
 
     <!-- ROI -->
@@ -108,7 +108,7 @@
         </tbody>
       </table>
 
-      <p class="project-body" style="margin-top: 1.5em;">By tracing each recommended action and tying them to these KPIs, we can compound the business value of this feature by:</p>
+      <p class="project-body">By tracing each recommended action and tying them to these KPIs, we can compound the business value of this feature by:</p>
       <ol class="project-list project-list--ordered">
         <li>Continue training the model based on recommended action success.</li>
         <li>Expose those successes to technicians and managers alike, creating a positive feedback loop in their organization.</li>
