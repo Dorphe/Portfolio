@@ -181,11 +181,12 @@ a {
 
 .col-projects {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0;
   flex: 1;
   min-width: 0;
+  max-width: 1200px;
 
   opacity: 0;
   animation: fadeIn 0.6s var(--ease-out) 0.25s forwards;
@@ -211,7 +212,7 @@ a {
 }
 
 .card + .card {
-  border-left: 1px solid rgba(71, 71, 53, 0.08);
+  border-top: 1px solid rgba(71, 71, 53, 0.08);
 }
 
 .card:hover {
@@ -276,12 +277,11 @@ a {
 
   .col-projects {
     width: 100%;
-    overflow-x: auto;
   }
 
   .card {
-    min-width: 240px;
-    flex: 0 0 240px;
+    min-width: 0;
+    flex: 1;
   }
 
   .bio {
@@ -499,7 +499,7 @@ a {
 }
 
 .project-list li::before {
-  content: '—';
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--ink);
