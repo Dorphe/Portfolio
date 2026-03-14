@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STI Test Results — Mathieu Preston</title>
+  <meta name="description" content="Designing STI test results for Legacy — navigating the challenge of binary medical results where standard semantic visual patterns create confusion." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <div class="project-nav">
+    <a href="../../" class="project-nav-link">
+      <span class="project-nav-arrow" aria-hidden="true">←</span>
+      <span class="project-nav-name">Mathieu Preston</span>
+    </a>
+  </div>
+
+  <header class="project-hero project-hero--split">
+    <div class="project-hero-inner">
+      <div class="project-hero-text">
+        <p class="project-kicker">Legacy</p>
+        <h1 class="project-h1">STI Test Results</h1>
+        <p class="project-intro">Designing detection test results is tricky. STI testing is required by law in many US states before freezing sperm — which meant designing a result interface that was both <strong>accurate and emotionally appropriate</strong>.</p>
+      </div>
+      <div class="project-hero-image" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <article class="project-page">
+
+    <!-- Context -->
+    <section class="project-section">
+      <h2 class="project-h2">The problem</h2>
+      <p class="project-body">In early 2022, Legacy wanted to expand its test offerings by starting with STI testing — both to offer a more comprehensive suite of products and also because STI testing is required by law in many US states before freezing sperm.</p>
+      <p class="project-body">Since STI test results are binary, my natural instinct was to use familiar colors and shapes with semantic values — green/red and checkmarks/crosses. I very quickly ran into a problem.</p>
+      <p class="project-body">Testing positive for an STI is, technically, <em>positive</em>… but it's not good news. In any other context, ✅ = 😀. However, in this case, it's very much ☹️.</p>
+    </section>
+
+    <!-- Hypothesis -->
+    <section class="project-section">
+      <h2 class="project-h2">The hypothesis</h2>
+      <blockquote class="project-quote">Associating positive semantic visuals with a negative emotion creates confusion.</blockquote>
+    </section>
+
+    <!-- Process -->
+    <section class="project-section">
+      <h2 class="project-h2">The process</h2>
+      <p class="project-body">I tested a few iterations of the test results — some with the classic green/red and icon system — and reception was indeed poor. Users were confused about whether a "positive" result was something to celebrate or be concerned about.</p>
+      <p class="project-body">Going back to the drawing board, I talked with our resident healthcare experts and did additional research. Traditional test results are plain and simple and simply list the test performed and the result using text. They deliberately avoid color-coding precisely because the semantic weight of colors is culturally conditioned, not medically appropriate.</p>
+    </section>
+
+    <!-- Result -->
+    <section class="project-section">
+      <h2 class="project-h2">The result</h2>
+      <p class="project-body">I ended up with a final version that, while at first glance might seem harder to read, is closer to what a result sheet looks like in a traditional healthcare facility. It ends up being more familiar to both clinicians and patients, while also being legible and available online for all parties.</p>
+
+      <h3 class="project-h3">Key design decisions</h3>
+      <ul class="project-list">
+        <li><strong>No color-coded status indicators</strong> — the result is communicated through plain text, not color</li>
+        <li><strong>Clinical table format</strong> — familiar to anyone who's received lab work from a doctor</li>
+        <li><strong>Clear "your next steps" section</strong> — because the result alone is not enough; the patient needs guidance on what to do next</li>
+        <li><strong>Contextual recommendations</strong> — different guidance is shown depending on whether a result is negative, positive, or inconclusive</li>
+      </ul>
+    </section>
+
+  </article>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
