@@ -324,9 +324,11 @@ a {
   opacity: 0.6;
 }
 
-.project-nav-arrow {
-  font-size: 16px;
-  line-height: 1;
+.project-nav-back {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
   color: var(--ink);
 }
 
@@ -345,6 +347,26 @@ a {
 /* Hero */
 .project-hero {
   margin-bottom: 0;
+}
+
+.project-hero--split {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.project-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.project-hero-image {
+  flex: 1;
+  background-color: #F5F5F5;
+  min-height: 280px;
 }
 
 .project-kicker {
@@ -458,6 +480,34 @@ a {
   opacity: 0.5;
 }
 
+/* Feature list — title above body, no bullet */
+.project-list--features li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 0;
+}
+
+.project-list--features li::before {
+  display: none;
+}
+
+.feature-title {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.feature-body {
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
 /* KPI table */
 .project-table {
   width: 100%;
@@ -523,6 +573,14 @@ a {
   .project-two-col {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .project-hero--split {
+    flex-direction: column;
+  }
+
+  .project-hero-image {
+    min-height: 200px;
   }
 
   .project-h1 {

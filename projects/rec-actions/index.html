@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&family=Inter:wght@700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../../style.css" />
 </head>
@@ -17,18 +17,20 @@
   <div class="project-nav">
     <a href="../../" class="project-nav-link">
       <span class="project-nav-arrow" aria-hidden="true">←</span>
-      <span class="name-bold">Mathieu Preston</span>
-      <span class="name-role">Senior product designer</span>
+      <span class="project-nav-back">Back</span>
     </a>
   </div>
 
   <article class="project-page">
 
     <!-- Hero -->
-    <header class="project-hero">
-      <p class="project-kicker">MaintainX</p>
-      <h1 class="project-h1">AI Recommended Actions</h1>
-      <p class="project-intro">In industrial maintenance, technicians are the backbone of uptime. However, they are often sent into the field with incomplete data. This project focused on building an AI-enabled recommendation engine within work orders to <strong>reduce guesswork</strong>, <strong>leverage historical tribal knowledge</strong>, and <strong>decrease machine downtime</strong>.</p>
+    <header class="project-hero project-hero--split">
+      <div class="project-hero-text">
+        <p class="project-kicker">MaintainX</p>
+        <h1 class="project-h1">AI Recommended Actions</h1>
+        <p class="project-intro">In industrial maintenance, technicians are the backbone of uptime. However, they are often sent into the field with incomplete data. This project focused on building an AI-enabled recommendation engine within work orders to <strong>reduce guesswork</strong>, <strong>leverage historical tribal knowledge</strong>, and <strong>decrease machine downtime</strong>.</p>
+      </div>
+      <div class="project-hero-image" aria-hidden="true"></div>
     </header>
 
     <!-- Problem + Hypothesis -->
@@ -57,10 +59,19 @@
       <p class="project-body">When technicians start working on a specific repair, they are introduced to <strong>Recommended actions</strong> integrated directly in their work execution user journey, ensuring they have exactly what they need, when they need it.</p>
 
       <h3 class="project-h3" style="margin-top: 2em;">Key Features</h3>
-      <ul class="project-list">
-        <li><strong>Historical pattern recognition:</strong> The AI flags if this specific machine (or similar models in the organization) has failed in this way before, and surfaces the information if relevant.</li>
-        <li><strong>Manual synthesis:</strong> Instead of a 200-page PDF, the AI extracts the specific calibration steps relevant to the reported fault.</li>
-        <li><strong>Peer insights:</strong> Surfacing comments from previous interventions that faced similar issues, turning tribal knowledge into a shared company asset.</li>
+      <ul class="project-list project-list--features">
+        <li>
+          <strong class="feature-title">Historical pattern recognition</strong>
+          <span class="feature-body">The AI flags if this specific machine (or similar models in the organization) has failed in this way before, and surfaces the information if relevant.</span>
+        </li>
+        <li>
+          <strong class="feature-title">Trustworthy sources</strong>
+          <span class="feature-body">Instead of having to sift through a 200-page PDF, technicians are presented with the specific, verified information relevant to the reported fault, straight from the manual.</span>
+        </li>
+        <li>
+          <strong class="feature-title">Peer insights</strong>
+          <span class="feature-body">Surfacing comments from previous interventions that faced similar issues, turning tribal knowledge into a shared company asset.</span>
+        </li>
       </ul>
     </section>
 
