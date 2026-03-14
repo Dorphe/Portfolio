@@ -3,19 +3,16 @@
    ============================================= */
 
 :root {
-  --bg:          #F4F1EC;
-  --bg-alt:      #EDE9E2;
-  --ink:         #1C1A17;
-  --ink-soft:    #6B6560;
-  --ink-muted:   #A09A93;
-  --accent:      #1C1A17;
-  --border:      rgba(28, 26, 23, 0.1);
+  --bg:       #FFFFFF;
+  --ink:      #474735;
+  --card-bg:  #F5F5F5;
+  --font:     "BIZ UDMincho", system-ui, serif;
 
-  --font-serif:  'Cormorant Garamond', Georgia, serif;
-  --font-sans:   'Syne', system-ui, sans-serif;
+  --pad:      32px;
+  --gap:      32px;
+  --col-info: 512px;
 
-  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* =============================================
@@ -32,17 +29,14 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   background-color: var(--bg);
   color: var(--ink);
-  font-family: var(--font-sans);
+  font-family: var(--font);
   min-height: 100dvh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  overflow-x: hidden;
 }
 
 a {
@@ -50,365 +44,261 @@ a {
   text-decoration: none;
 }
 
-ul {
-  list-style: none;
+/* =============================================
+   PAGE GRID
+   ============================================= */
+
+.page {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--gap);
+  padding: var(--pad);
+  min-height: 100dvh;
 }
 
 /* =============================================
-   NOISE OVERLAY — subtle texture on background
+   LEFT COLUMN — personal info
    ============================================= */
 
-body::before {
-  content: '';
-  position: fixed;
+.col-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: var(--col-info);
+  gap: 40px;
+
+  opacity: 0;
+  animation: fadeIn 0.6s var(--ease-out) 0.1s forwards;
+}
+
+/* Name row */
+.name-row {
+  flex-shrink: 0;
+}
+
+.name-link {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 16px;
+  transition: opacity 0.2s;
+}
+
+.name-link:hover {
+  opacity: 0.6;
+}
+
+.name-bold {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.name-role {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* Bio stack */
+.bio-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+/* Avatar */
+.avatar-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Greeting */
+.greeting {
+  font-family: var(--font);
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: pre;
+}
+
+/* Bio paragraph */
+.bio {
+  font-family: var(--font);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--ink);
+  white-space: pre-wrap;
+  width: 490px;
+  max-width: 100%;
+}
+
+.text-link {
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.2s;
+}
+
+.text-link:hover {
+  opacity: 0.6;
+}
+
+/* =============================================
+   RIGHT COLUMN — project cards
+   ============================================= */
+
+.col-projects {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  flex: 1;
+  min-width: 0;
+
+  opacity: 0;
+  animation: fadeIn 0.6s var(--ease-out) 0.25s forwards;
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: 300px;
+  background-color: var(--card-bg);
+  padding: 16px;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  position: relative;
+}
+
+.card + .card {
+  border-left: 1px solid rgba(71, 71, 53, 0.08);
+}
+
+.card:hover {
+  background-color: #EBEBEB;
+}
+
+/* Card image placeholder area */
+.card-image {
+  position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
-  opacity: 0.025;
-  pointer-events: none;
-  z-index: 0;
+  bottom: 52px; /* leave room for label */
 }
 
-/* =============================================
-   LAYOUT SHELL
-   ============================================= */
-
-.site-header,
-.main-content,
-.site-footer {
+/* Card label */
+.card-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   position: relative;
   z-index: 1;
 }
 
-/* =============================================
-   HEADER
-   ============================================= */
-
-.site-header {
-  padding: 2.25rem clamp(1.5rem, 6vw, 5rem);
-  display: flex;
-  align-items: center;
-}
-
-.site-name {
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink);
-  opacity: 0;
-  animation: fadeUp 0.7s var(--ease-out) 0.1s forwards;
-  transition: opacity 0.2s;
-}
-
-.site-name:hover {
-  opacity: 0.5;
-}
-
-/* =============================================
-   MAIN CONTENT
-   ============================================= */
-
-.main-content {
-  padding: clamp(3rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(4rem, 10vw, 8rem);
-  max-width: 1100px;
-}
-
-/* =============================================
-   HERO
-   ============================================= */
-
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
-}
-
-/* Greeting block */
-.hero-greeting {
-  opacity: 0;
-  animation: fadeUp 0.9s var(--ease-out) 0.25s forwards;
-}
-
-.greeting-text {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(5rem, 12vw, 10rem);
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-
-.greeting-name {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(2.25rem, 5vw, 4rem);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-top: 0.25em;
-}
-
-/* Bio block */
-.hero-body {
-  padding-top: 0.5rem;
-  opacity: 0;
-  animation: fadeUp 0.9s var(--ease-out) 0.45s forwards;
-}
-
-.bio {
-  font-family: var(--font-sans);
-  font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+.card-company {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 400;
-  line-height: 1.72;
-  color: var(--ink-soft);
-  max-width: 38ch;
-}
-
-.current-role {
-  margin-top: 1.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--ink-muted);
-}
-
-.inline-link {
-  color: var(--ink);
-  border-bottom: 1px solid var(--border);
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.inline-link:hover {
-  color: var(--ink);
-  border-color: var(--ink);
-}
-
-/* =============================================
-   PROJECT LIST
-   ============================================= */
-
-.projects {
-  opacity: 0;
-  animation: fadeUp 0.9s var(--ease-out) 0.65s forwards;
-}
-
-.project-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-
-.project-item {
-  border-bottom: 1px solid var(--border);
-}
-
-.project-link {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  column-gap: 2rem;
-  align-items: center;
-  padding: 1.5rem 0;
-  transition: padding-left 0.35s var(--ease-out);
-  cursor: pointer;
-}
-
-.project-link:hover {
-  padding-left: 0.75rem;
-}
-
-.project-company {
-  grid-column: 1;
-  grid-row: 1;
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  transition: color 0.25s;
-}
-
-.project-title {
-  grid-column: 1;
-  grid-row: 2;
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 300;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  color: var(--ink);
-  margin-top: 0.2em;
-  transition: color 0.25s;
-}
-
-.project-arrow {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  font-size: 1.25rem;
-  color: var(--ink-muted);
-  transition: transform 0.35s var(--ease-out), color 0.25s;
-  align-self: center;
-}
-
-.project-link:hover .project-company {
-  color: var(--ink-soft);
-}
-
-.project-link:hover .project-title {
-  font-style: italic;
-}
-
-.project-link:hover .project-arrow {
-  transform: translateX(6px);
-  color: var(--ink);
-}
-
-/* =============================================
-   FOOTER
-   ============================================= */
-
-.site-footer {
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem);
-  border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.9s var(--ease-out) 0.85s forwards;
-}
-
-.works-label {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-bottom: 1rem;
-}
-
-.works-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0;
-  flex-direction: column;
-}
-
-.works-link {
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  color: var(--ink-soft);
-  line-height: 1.9;
-  position: relative;
-  display: inline-block;
-  transition: color 0.2s;
-}
-
-.works-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0.1em;
-  width: 0;
-  height: 1px;
-  background: var(--ink);
-  transition: width 0.3s var(--ease-out);
-}
-
-.works-link:hover {
-  color: var(--ink);
-}
-
-.works-link:hover::after {
-  width: 100%;
-}
-
-.footer-email {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  letter-spacing: -0.01em;
   color: var(--ink);
   white-space: nowrap;
-  position: relative;
-  display: inline-block;
-  transition: opacity 0.2s;
 }
 
-.footer-email::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: var(--ink);
-  transition: width 0.45s var(--ease-out);
-}
-
-.footer-email:hover::after {
-  width: 100%;
+.card-title {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
 }
 
 /* =============================================
    ANIMATIONS
    ============================================= */
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* =============================================
    RESPONSIVE
    ============================================= */
 
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
   }
 
-  .hero-body {
-    padding-top: 0;
+  .col-info {
+    max-width: 100%;
+  }
+
+  .col-projects {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .card {
+    min-width: 240px;
+    flex: 0 0 240px;
   }
 
   .bio {
-    max-width: 100%;
+    width: 100%;
   }
 }
 
-@media (max-width: 600px) {
-  .site-footer {
-    grid-template-columns: 1fr;
-    align-items: start;
+@media (max-width: 480px) {
+  :root {
+    --pad: 20px;
+    --gap: 20px;
   }
 
-  .footer-email {
-    font-size: clamp(1.25rem, 6vw, 2rem);
+  .greeting {
+    font-size: 36px;
+    line-height: 44px;
   }
 
-  .project-link {
-    padding: 1.25rem 0;
+  .bio {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .name-bold,
+  .name-role {
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
@@ -417,9 +307,7 @@ body::before {
    ============================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
