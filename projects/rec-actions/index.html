@@ -17,7 +17,7 @@
   <div class="project-nav">
     <a href="../../" class="project-nav-link">
       <span class="project-nav-arrow" aria-hidden="true">←</span>
-      <span class="project-nav-name">Mathieu Preston</span>
+      <span class="project-nav-name">Back</span>
     </a>
   </div>
 
@@ -26,7 +26,7 @@
       <div class="project-hero-text">
         <p class="project-kicker">MaintainX</p>
         <h1 class="project-h1">AI Recommended Actions</h1>
-        <p class="project-intro">In industrial maintenance, technicians are the backbone of uptime. However, they are often sent into the field with incomplete data. This project focused on building an AI-enabled recommendation engine within work orders to <strong>reduce guesswork</strong>, <strong>leverage historical tribal knowledge</strong>, and <strong>decrease machine downtime</strong>.</p>
+        <p class="project-intro">Maintenance technicians often work from incomplete data. I designed an AI recommendation engine inside work orders to <strong>reduce guesswork</strong> and <strong>surface historical knowledge</strong> when it matters most.</p>
       </div>
       <div class="project-hero-image" aria-hidden="true"></div>
     </div>
@@ -35,51 +35,59 @@
   <article class="project-page">
 
     <!-- Problem -->
-    <section class="project-section">
+    <section class="project-section" data-reveal>
       <h2 class="project-h2">The problem</h2>
-      <p class="project-body">Technicians frequently receive work orders with minimal documentation. Without easy access to machine history or specific manuals, they spend significant time:</p>
+      <p class="project-body">Work orders arrive with minimal documentation. Technicians frequently encounter key pain points leading to high MTTR (mean time to repair) and rising operational costs.</p>
       <ul class="project-list">
-        <li>Manually searching through physical manuals or old reports.</li>
-        <li>Attempting standard procedures when a specific, historical fault might be the actual culprit.</li>
-        <li>Flagging down supervisors or senior techs to fill in the blanks.</li>
+        <li>Searching through physical manuals or old reports.</li>
+        <li>Running standard procedures when a known fault is the likely cause.</li>
+        <li>Chasing down supervisors for missing context.</li>
       </ul>
-      <p class="project-body">All of the above ends up compounding into high <strong>MTTR (mean time to repair)</strong>, increasing operational costs significantly.</p>
-    </section>
-
-    <!-- Hypothesis -->
-    <section class="project-section">
-      <h2 class="project-h2">The hypothesis</h2>
-      <p class="project-body">By synthesizing work order history, comments, and manuals, we can provide <strong>AI-recommended actions</strong> directly within the work order.</p>
-      <p class="project-body">If we surface specific shortcuts, such as identifying a recurring fault seen in similar machines, we can help technicians bypass generic troubleshooting and move straight to the solution, saving hours of labor per job.</p>
     </section>
 
     <!-- Solution -->
-    <section class="project-section">
-      <h2 class="project-h2">The Solution: Intelligence at the point of work</h2>
-      <p class="project-body">When technicians start working on a specific repair, they are introduced to <strong>Recommended actions</strong> integrated directly in their work execution user journey, ensuring they have exactly what they need, when they need it.</p>
+    <section class="project-section" data-reveal>
+      <h2 class="project-h2">The solution</h2>
+      <p class="project-body">Recommended actions appear when a technician opens a repair work order.</p>
 
-      <h3 class="project-h3">Key Features</h3>
-
-      <div class="project-feature">
-        <strong class="project-feature__title">Historical pattern recognition</strong>
-        <span class="project-feature__body">The AI flags if this specific machine (or similar models in the organization) has failed in this way before, and surfaces the information if relevant.</span>
-      </div>
-
-      <div class="project-feature">
-        <strong class="project-feature__title">Trustworthy sources</strong>
-        <span class="project-feature__body">Instead of having to sift through a 200-page PDF, technicians are presented with the specific, verified information relevant to the reported fault, straight from the manual.</span>
-      </div>
-
-      <div class="project-feature">
-        <strong class="project-feature__title">Peer insights</strong>
-        <span class="project-feature__body">Surfacing comments from previous interventions that faced similar issues, turning tribal knowledge into a shared company asset.</span>
+      <div>
+        <p class="project-label">Key Features</p>
+        <div class="project-numbered-rows">
+          <div class="project-numbered-row">
+            <span class="project-numbered-row__num">1</span>
+            <div class="project-numbered-row__content">
+              <span class="project-numbered-row__title">Historical pattern recognition</span>
+              <span class="project-numbered-row__body">Flags whether this machine or similar models have failed this way before.</span>
+            </div>
+          </div>
+          <div class="project-numbered-row">
+            <span class="project-numbered-row__num">2</span>
+            <div class="project-numbered-row__content">
+              <span class="project-numbered-row__title">Trustworthy sources</span>
+              <span class="project-numbered-row__body">Extracts the relevant information from the manual. No more searching a 200-page PDF.</span>
+            </div>
+          </div>
+          <div class="project-numbered-row">
+            <span class="project-numbered-row__num">3</span>
+            <div class="project-numbered-row__content">
+              <span class="project-numbered-row__title">Peer insights</span>
+              <span class="project-numbered-row__body">Surfaces comments from previous interventions on similar issues.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Hypothesis -->
+    <section class="project-section" data-reveal>
+      <h2 class="project-h2">The hypothesis</h2>
+      <p class="project-body">Synthesize work order history, comments, and manuals into AI-recommended actions delivered directly within the work order. Identify recurring faults across similar machines and surface the fix before the technician starts troubleshooting.</p>
+    </section>
+
     <!-- ROI -->
-    <section class="project-section">
+    <section class="project-section" data-reveal>
       <h2 class="project-h2">Tying design to ROI</h2>
-      <p class="project-body">To validate the value of these AI recommendations, I built a feedback loop that tracks the effectiveness of each suggestion. By tracing the usage of recommended actions, we can correlate the feature's usage with three KPIs:</p>
+      <p class="project-body">I built a feedback loop to track the effectiveness of each recommendation against three KPIs:</p>
 
       <table class="project-table">
         <thead>
@@ -93,72 +101,94 @@
           <tr>
             <td><strong>MTTR</strong></td>
             <td>Mean Time To Repair</td>
-            <td><strong>Decrease</strong> by reducing diagnostic "guesswork" time.</td>
+            <td>Decrease by cutting diagnostic guesswork.</td>
           </tr>
           <tr>
             <td><strong>MTBF</strong></td>
             <td>Mean Time Between Failures</td>
-            <td><strong>Increase</strong> by suggesting the most effective long-term fix rather than a quick patch.</td>
+            <td>Increase by suggesting the right long-term fix over a quick patch.</td>
           </tr>
           <tr>
             <td><strong>Asset Downtime</strong></td>
             <td>Total time a machine is non-functional</td>
-            <td><strong>Minimize</strong> by getting the machine back to a "Ready" state faster.</td>
+            <td>Minimize by getting machines back to Ready faster.</td>
           </tr>
         </tbody>
       </table>
+    </section>
 
-      <p class="project-body">By tracing each recommended action and tying them to these KPIs, we can compound the business value of this feature by:</p>
-      <ol class="project-list project-list--ordered">
-        <li>Continue training the model based on recommended action success.</li>
-        <li>Expose those successes to technicians and managers alike, creating a positive feedback loop in their organization.</li>
-        <li>Tie it directly to ROI, easily creating real business cases.</li>
-      </ol>
+    <!-- Feedback Loop -->
+    <section class="project-section" data-reveal>
+      <h2 class="project-h2">This feedback loop compounds value in three ways</h2>
+      <div class="project-feedback-cards">
+        <div class="project-feedback-card">
+          <span class="project-feedback-card__num">1</span>
+          <p class="project-feedback-card__body">Retrains the model based on recommendation outcomes.</p>
+        </div>
+        <div class="project-feedback-card">
+          <span class="project-feedback-card__num">2</span>
+          <p class="project-feedback-card__body">Exposes successes to technicians and managers, building trust.</p>
+        </div>
+        <div class="project-feedback-card">
+          <span class="project-feedback-card__num">3</span>
+          <p class="project-feedback-card__body">Creates direct ROI evidence for business cases.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Design Choices -->
+    <section class="project-section" data-reveal>
+      <h2 class="project-h2">Key design decisions</h2>
+      <div class="project-design-choices">
+        <div class="project-design-choice">
+          <div class="project-design-choice__image" aria-hidden="true"></div>
+          <div class="project-design-choice__content">
+            <span class="project-design-choice__title">From &ldquo;black box&rdquo; to &ldquo;open book&rdquo;</span>
+            <p class="project-design-choice__body">Technicians are field experts. If an AI says &ldquo;Replace Part X&rdquo; with no reasoning, they&rsquo;ll ignore it.<br><br>I designed evidence markers into every recommendation. The card shows what it suggests and why: &ldquo;Based on 3 similar faults in the last 6 months and Page 42 of the Service Manual.&rdquo;</p>
+          </div>
+        </div>
+        <div class="project-design-choice">
+          <div class="project-design-choice__image" aria-hidden="true"></div>
+          <div class="project-design-choice__content">
+            <span class="project-design-choice__title">Human-in-the-loop feedback</span>
+            <p class="project-design-choice__body">I added a single-tap Accept/Dismiss action to each recommendation. Dismissals prompt a quick-select reason list.<br><br>Technicians stay in control, and the data science team gets the ground truth labels needed to retrain the model.</p>
+          </div>
+        </div>
+        <div class="project-design-choice">
+          <div class="project-design-choice__image" aria-hidden="true"></div>
+          <div class="project-design-choice__content">
+            <span class="project-design-choice__title">Communicating confidence</span>
+            <p class="project-design-choice__body">Showing &ldquo;82% confidence&rdquo; felt arbitrary to someone under a machine. I replaced percentage scores with qualitative tiers: &ldquo;Primary Suggestion&rdquo; and &ldquo;Alternative Considerations.&rdquo;<br><br>Technicians naturally think in terms of Plan A and Plan B. The UI was designed to match that.</p>
+          </div>
+        </div>
+        <div class="project-design-choice">
+          <div class="project-design-choice__image" aria-hidden="true"></div>
+          <div class="project-design-choice__content">
+            <span class="project-design-choice__title">Source linking</span>
+            <p class="project-design-choice__body">Technicians don&rsquo;t trust AI summaries of technical text. In maintenance, hallucinations can be dangerous. Every recommendation links directly to the source PDF, opened to the exact page.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Reflections -->
-    <section class="project-section">
-      <h2 class="project-h2">Reflections &amp; Lessons</h2>
-      <ul class="project-list">
-        <li><strong>Creating trust comes first:</strong> Technicians can be skeptical of AI. The experience had to convey <em>why</em> it was making a recommendation (e.g., <em>"Based on a similar fault in Machine B-12 last month"</em>). Otherwise, we risk turning away our users forever.</li>
-        <li><strong>Data quality matters:</strong> An LLM is only as good as the context it's provided. This led to adjacent initiatives, such as creating opportunities for technicians to document their work effortlessly, further reinforcing the data moat.</li>
-      </ul>
-    </section>
-
-    <!-- Challenges -->
-    <section class="project-section">
-      <h2 class="project-h2">Challenges &amp; user insights</h2>
-
-      <div class="project-challenge">
-        <h3 class="project-h3">1. Moving from "Black Box" to "Open Book"</h3>
-        <p class="project-body">Technicians are experts with field intuition. If an AI simply says "Replace Part X" without explanation, the technician will likely ignore it because they don't know the reasoning behind it.</p>
-        <blockquote class="project-quote">
-          "I realized early on that transparency was more important than accuracy for initial adoption. I designed the 'Why' into the UI. Instead of just showing a recommendation, I included evidence markers. For example, the card would say: 'Recommended: Check Pressure Valve (Based on 3 similar faults in the last 6 months and Page 42 of the Service Manual).' This transformed the AI from a 'boss' telling them what to do into a 'researcher' providing them with supporting data."
-        </blockquote>
-      </div>
-
-      <div class="project-challenge">
-        <h3 class="project-h3">2. Designing for "Human-in-the-Loop" Feedback</h3>
-        <p class="project-body">AI models need feedback to improve, but technicians are busy and won't fill out surveys.</p>
-        <blockquote class="project-quote">
-          "Trust is a two-way street. I designed a low-friction feedback loop directly into the work order flow. Technicians could 'Accept' or 'Dismiss' a recommendation with a single tap. If they dismissed it, I provided a quick-select list of reasons (e.g., 'Not relevant,' 'Already tried'). This did two things: it made the technician feel in control of the tool, and it provided the data science team with the 'ground truth' labels needed to retrain the model for better future accuracy."
-        </blockquote>
-      </div>
-
-      <div class="project-challenge">
-        <h3 class="project-h3">3. Communicating confidence without creating doubt</h3>
-        <p class="project-body">AI is probabilistic, not deterministic. If you show a "60% confidence" score, a technician might think the system is broken.</p>
-        <blockquote class="project-quote">
-          "We had a lot of internal debate about showing percentage scores. In testing, I found that '82% Confidence' felt arbitrary to a user under a machine. I pivoted the design to use qualitative tiers—categorizing suggestions as 'Primary Suggestion' or 'Alternative Considerations.' This matched the way technicians naturally troubleshoot: they have a Plan A, but they keep a Plan B in mind. The UI reflected their mental model rather than the model's math."
-        </blockquote>
-      </div>
-
-      <div class="project-challenge">
-        <h3 class="project-h3">4. The importance of sources</h3>
-        <p class="project-body">Technicians often don't trust AI-generated summaries of technical text because hallucinations can be dangerous.</p>
-        <blockquote class="project-quote">
-          "To bridge the trust gap, I insisted on 'Deep Linking' to sources. If the AI recommended a specific calibration procedure from a manual, the UI included a direct link that opened the PDF to that exact page. By providing the source material alongside the AI insight, we reduced the cognitive load of searching while giving the technician the 'safety net' of the original documentation. It proved that the AI wasn't 'hallucinating'—it was just being a very fast librarian."
-        </blockquote>
+    <section class="project-section" data-reveal>
+      <h2 class="project-h2">Reflections</h2>
+      <div class="project-numbered-rows">
+        <div class="project-numbered-row">
+          <span class="project-numbered-row__num">1</span>
+          <div class="project-numbered-row__content">
+            <span class="project-numbered-row__title">Trust comes first</span>
+            <span class="project-numbered-row__body">Technicians are skeptical of AI. Every recommendation had to show why it was made.</span>
+          </div>
+        </div>
+        <div class="project-numbered-row">
+          <span class="project-numbered-row__num">2</span>
+          <div class="project-numbered-row__content">
+            <span class="project-numbered-row__title">Data quality drives everything</span>
+            <span class="project-numbered-row__body">The model is only as good as its context. This led to adjacent work: making it effortless for technicians to document their interventions.</span>
+          </div>
+        </div>
       </div>
     </section>
 

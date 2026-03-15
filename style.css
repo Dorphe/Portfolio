@@ -18,7 +18,7 @@
   --col-info: 512px;
 
   /* Project page spacing rhythm */
-  --space-section: 80px;   /* between major sections */
+  --space-section: 64px;   /* between major sections */
   --space-block:   48px;   /* between sub-sections / challenge items */
   --space-item:    16px;   /* heading → body, body → body */
 
@@ -65,6 +65,8 @@ a {
   gap: var(--gap);
   padding: var(--pad);
   min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
 }
 
 /* =============================================
@@ -156,12 +158,47 @@ a {
 
 /* Bio paragraph */
 .bio {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 490px;
+  max-width: 100%;
+}
+
+.bio-label {
   font-family: var(--font);
   font-size: 24px;
   line-height: 32px;
   font-weight: 400;
   color: var(--ink);
-  white-space: pre-wrap;
+  opacity: 0.4;
+}
+
+.bio-list {
+  font-family: var(--font);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.bio-current {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  opacity: 0.5;
+  width: 490px;
+  max-width: 100%;
+}
+
+.bio-contact {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--ink);
   width: 490px;
   max-width: 100%;
 }
@@ -183,13 +220,19 @@ a {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0;
+  gap: 32px;
   flex: 1;
   min-width: 0;
   max-width: 1200px;
+  overflow-y: auto;
+  scrollbar-width: none;
 
   opacity: 0;
   animation: fadeIn 0.6s var(--ease-out) 0.25s forwards;
+}
+
+.col-projects::-webkit-scrollbar {
+  display: none;
 }
 
 /* Card */
@@ -199,7 +242,8 @@ a {
   justify-content: flex-end;
   align-items: flex-start;
   width: 100%;
-  height: 300px;
+  min-height: 400px;
+  max-height: 600px;
   background-color: var(--card-bg);
   padding: 16px;
   gap: 4px;
@@ -211,10 +255,6 @@ a {
   position: relative;
 }
 
-.card + .card {
-  border-top: 1px solid rgba(71, 71, 53, 0.08);
-}
-
 .card:hover {
   background-color: #EBEBEB;
 }
@@ -223,7 +263,9 @@ a {
 .card-image {
   position: absolute;
   inset: 0;
-  bottom: 52px; /* leave room for label */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
 
 /* Card label */
@@ -269,6 +311,8 @@ a {
 @media (max-width: 900px) {
   .page {
     flex-direction: column;
+    max-height: none;
+    overflow: visible;
   }
 
   .col-info {
@@ -277,6 +321,7 @@ a {
 
   .col-projects {
     width: 100%;
+    overflow-y: visible;
   }
 
   .card {
@@ -342,7 +387,7 @@ a {
 
 .project-nav-name {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
   font-weight: 700;
   color: var(--ink);
@@ -376,6 +421,7 @@ a {
   justify-content: center;
   gap: 20px;
   flex: 1;
+  max-width: 640px;
   padding: 0 var(--pad);
 }
 
@@ -386,19 +432,19 @@ a {
 
 .project-kicker {
   font-family: var(--font-display);
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: 0.45;
+  opacity: 0.5;
 }
 
 .project-h1 {
   font-family: var(--font-display);
   font-size: 60px;
-  line-height: 1.05;
+  line-height: 64px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -406,10 +452,9 @@ a {
 .project-intro {
   font-family: var(--font-display);
   font-size: 24px;
-  line-height: 36px;
+  line-height: 34px;
   font-weight: 400;
   color: var(--ink);
-  max-width: 800px;
 }
 
 /* =============================================
@@ -417,16 +462,21 @@ a {
    ============================================= */
 
 .project-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section);
   max-width: 760px;
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem) var(--pad) clamp(4rem, 8vw, 6rem);
+  padding: var(--space-section) var(--pad) 64px;
   opacity: 0;
   animation: fadeIn 0.6s var(--ease-out) 0.35s forwards;
 }
 
 /* Section spacing */
 .project-section {
-  margin-top: var(--space-section);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 /* Two-column grid */
@@ -443,20 +493,18 @@ a {
 
 .project-h2 {
   font-family: var(--font-body);
-  font-size: 26px;
-  line-height: 32px;
+  font-size: 32px;
+  line-height: 40px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: var(--space-item);
 }
 
 .project-h3 {
   font-family: var(--font-body);
-  font-size: 22px;
+  font-size: 20px;
   line-height: 28px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: var(--space-item);
 }
 
 .project-body {
@@ -467,16 +515,6 @@ a {
   color: var(--ink);
 }
 
-/* Auto-spacing between consecutive content elements */
-.project-body + .project-body,
-.project-body + .project-list,
-.project-body + .project-feature,
-.project-list  + .project-body,
-.project-h3    + .project-list,
-.project-h3    + .project-feature {
-  margin-top: var(--space-item);
-}
-
 /* =============================================
    PROJECT PAGE — LISTS
    ============================================= */
@@ -485,7 +523,7 @@ a {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
 }
 
 .project-list li {
@@ -494,8 +532,9 @@ a {
   line-height: 32px;
   font-weight: 400;
   color: var(--ink);
-  padding-left: 22px;
+  padding: 16px 0 16px 22px;
   position: relative;
+  border-bottom: 1px solid rgba(71, 71, 53, 0.08);
 }
 
 .project-list li::before {
@@ -530,10 +569,6 @@ a {
   gap: 4px;
 }
 
-.project-feature + .project-feature {
-  margin-top: var(--space-item);
-}
-
 .project-feature__title {
   font-family: var(--font-body);
   font-size: 20px;
@@ -557,20 +592,19 @@ a {
 .project-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 24px;
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .project-table th {
   text-align: left;
   font-weight: 700;
   font-size: 12px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: 0.45;
+  opacity: 0.5;
   padding: 10px 16px 10px 0;
   border-bottom: 1px solid rgba(71, 71, 53, 0.15);
 }
@@ -591,12 +625,179 @@ a {
    ============================================= */
 
 .project-challenge {
-  margin-top: var(--space-block);
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: 4px;
 }
 
-.project-challenge + .project-challenge {
-  padding-top: var(--space-block);
-  border-top: 1px solid rgba(71, 71, 53, 0.08);
+.project-challenge .project-h3 {
+  margin-bottom: 12px;
+}
+
+.project-challenge .project-body:first-of-type:has(~ .project-body) {
+  opacity: 0.7;
+}
+
+/* =============================================
+   PROJECT PAGE — IMAGE PLACEHOLDER
+   ============================================= */
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--card-bg);
+  border-radius: 4px;
+}
+
+/* =============================================
+   PROJECT PAGE — LABEL
+   ============================================= */
+
+.project-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+/* =============================================
+   PROJECT PAGE — NUMBERED ROWS
+   ============================================= */
+
+.project-numbered-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-numbered-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(71, 71, 53, 0.08);
+  align-items: baseline;
+}
+
+.project-numbered-row__num {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink);
+  opacity: 0.5;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.project-numbered-row__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.project-numbered-row__title {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.project-numbered-row__body {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* =============================================
+   PROJECT PAGE — FEEDBACK CARDS
+   ============================================= */
+
+.project-feedback-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.project-feedback-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid rgba(71, 71, 53, 0.2);
+}
+
+.project-feedback-card__num {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ink);
+  opacity: 0.5;
+  width: 40px;
+}
+
+.project-feedback-card__body {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* =============================================
+   PROJECT PAGE — DESIGN CHOICES
+   ============================================= */
+
+.project-design-choices {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-design-choice {
+  display: flex;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(71, 71, 53, 0.08);
+}
+
+.project-design-choice__image {
+  width: 268px;
+  flex-shrink: 0;
+  background: var(--card-bg);
+  align-self: stretch;
+  overflow: clip;
+}
+
+.project-design-choice__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.project-design-choice__title {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.project-design-choice__body {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--ink);
 }
 
 /* =============================================
@@ -604,7 +805,6 @@ a {
    ============================================= */
 
 .project-quote {
-  margin-top: 20px;
   padding: 20px 24px;
   border-left: 3px solid rgba(71, 71, 53, 0.18);
   font-family: var(--font-body);
@@ -647,9 +847,33 @@ a {
     font-size: 2.25rem;
   }
 
-  .project-section {
-    margin-top: var(--space-block);
+  .project-feedback-cards {
+    flex-direction: column;
   }
+
+  .project-design-choice {
+    flex-direction: column;
+  }
+
+  .project-design-choice__image {
+    width: 100%;
+    min-height: 180px;
+  }
+}
+
+/* =============================================
+   SCROLL REVEAL
+   ============================================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =============================================
