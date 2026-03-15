@@ -7,10 +7,10 @@
   --ink:      #474735;
   --card-bg:  #F5F5F5;
 
-  /* Font stacks */
-  --font:         "BIZ UDMincho", system-ui, serif;   /* display / hero */
-  --font-display: "BIZ UDMincho", system-ui, serif;
-  --font-body:    "Inter", system-ui, sans-serif;
+  /* Font stacks — var(--font-biz) and var(--font-inter) injected by next/font */
+  --font:         var(--font-biz), "BIZ UDMincho", system-ui, serif;
+  --font-display: var(--font-biz), "BIZ UDMincho", system-ui, serif;
+  --font-body:    var(--font-inter), "Inter", system-ui, sans-serif;
 
   /* Layout */
   --pad:      32px;
