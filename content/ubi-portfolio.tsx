@@ -12,6 +12,7 @@ export const metadata = {
   kicker: "Ubisoft",
   description:
     "Database to share and reuse game development assets between different teams at Ubisoft, adopted by hundreds of users across multiple productions.",
+  heroImage: "/images/ubi-portfolio.jpg",
   intro: (
     <>
       Game development teams at Ubisoft work in silos. Portfolio was built to

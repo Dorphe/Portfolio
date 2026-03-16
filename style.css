@@ -295,6 +295,65 @@ a {
   white-space: nowrap;
 }
 
+/* Older works */
+.older-works {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  padding-top: 16px;
+  margin-top: 0;
+}
+
+.older-works-label {
+  font-family: var(--font);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.4;
+  margin-bottom: 4px;
+}
+
+.older-work-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.older-work-item:hover {
+  opacity: 0.5;
+}
+
+.older-work-company {
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  opacity: 0.5;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.older-work-title {
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
 /* =============================================
    ANIMATIONS
    ============================================= */
@@ -403,6 +462,7 @@ a {
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding: 0 64px;
   opacity: 0;
   animation: fadeIn 0.6s var(--ease-out) 0.2s forwards;
 }
@@ -413,6 +473,7 @@ a {
   align-items: stretch;
   width: 100%;
   height: 100%;
+  gap: 64px;
 }
 
 .project-hero-text {
@@ -422,7 +483,7 @@ a {
   gap: 20px;
   flex: 1;
   max-width: 640px;
-  padding: 0 var(--pad);
+  padding: 0;
 }
 
 .project-hero-image {
@@ -649,6 +710,27 @@ a {
   border-radius: 4px;
 }
 
+.project-image-figure {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-image-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.project-image-caption {
+  font-size: 13px;
+  color: var(--text-secondary, #888);
+  line-height: 1.5;
+}
+
 /* =============================================
    PROJECT PAGE — LABEL
    ============================================= */
@@ -828,14 +910,16 @@ a {
 
   .project-hero--split .project-hero-inner {
     flex-direction: column;
+    gap: 0;
   }
 
   .project-hero {
     height: auto;
+    padding: 0 var(--pad);
   }
 
   .project-hero-text {
-    padding: 48px var(--pad) 32px;
+    padding: 48px 0 32px;
   }
 
   .project-hero-image {
@@ -859,6 +943,210 @@ a {
     width: 100%;
     min-height: 180px;
   }
+}
+
+/* =============================================
+   PROJECT PAGE — IMAGE STRIP (FULL-BLEED HORIZONTAL SCROLL)
+   ============================================= */
+
+.project-image-strip {
+  width: 100vw;
+  margin-left: calc(-1 * var(--pad) - max(0px, (100vw - 760px) / 2));
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.project-image-strip__rail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  padding: 0;
+  scroll-padding-left: calc(var(--pad) + max(0px, (100vw - 760px) / 2));
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-image-strip__rail::before,
+.project-image-strip__rail::after {
+  content: '';
+  flex-shrink: 0;
+  width: calc(var(--pad) + max(0px, (100vw - 760px) / 2));
+}
+
+.project-image-strip__rail::-webkit-scrollbar {
+  display: none;
+}
+
+.project-image-strip__item {
+  flex-shrink: 0;
+  width: 300px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  background-color: var(--card-bg);
+}
+
+.project-image-strip__img {
+  width: 100%;
+  height: 480px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.project-image-strip--landscape .project-image-strip__item {
+  width: 560px;
+}
+
+.project-image-strip--landscape .project-image-strip__img {
+  height: 340px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-image-strip__caption {
+  font-size: 13px;
+  color: var(--text-secondary, #888);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .project-image-strip__rail {
+    padding: 0 var(--pad);
+    gap: 10px;
+  }
+
+  .project-image-strip__item {
+    width: 240px;
+  }
+
+  .project-image-strip__img {
+    height: 380px;
+  }
+}
+
+/* =============================================
+   LIGHTBOX
+   ============================================= */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lightboxFadeIn 0.18s var(--ease-out) forwards;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox-frame {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: lightboxScaleIn 0.18s var(--ease-out) forwards;
+}
+
+@keyframes lightboxScaleIn {
+  from { transform: scale(0.97); }
+  to   { transform: scale(1); }
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+  user-select: none;
+}
+
+.lightbox-caption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  max-width: 600px;
+}
+
+.lightbox-counter {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 20px;
+}
+
+.lightbox-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Clickable cursor on strip images */
+.project-image-strip__img,
+.project-image-img {
+  cursor: zoom-in;
 }
 
 /* =============================================

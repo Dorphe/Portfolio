@@ -12,4 +12,7 @@ export { ProjectNumberedRows } from "./project-numbered-rows";
 export { ProjectFeedbackCards } from "./project-feedback-cards";
 export { ProjectDesignChoices } from "./project-design-choices";
 export { ProjectImage } from "./project-image";
+export { ProjectImageStrip } from "./project-image-strip";
+export { LightboxProvider } from "./lightbox-context";
+export { Lightbox } from "./lightbox";
 export { ProjectCard } from "./project-card";

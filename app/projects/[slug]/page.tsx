@@ -39,6 +39,7 @@ export default async function ProjectPage({
         kicker={metadata.kicker}
         title={metadata.title}
         intro={metadata.intro}
+        image={metadata.heroImage}
       />
       <article className="project-page">
         <Content />

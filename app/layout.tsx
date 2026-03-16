@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BIZ_UDMincho, Inter } from "next/font/google";
 import "@/app/globals.css";
 import "@/style.css";
+import { LightboxProvider, Lightbox } from "@/components";
 
 const bizUDMincho = BIZ_UDMincho({
   subsets: ["latin"],
@@ -30,7 +31,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bizUDMincho.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <LightboxProvider>
+          {children}
+          <Lightbox />
+        </LightboxProvider>
+      </body>
     </html>
   );
 }

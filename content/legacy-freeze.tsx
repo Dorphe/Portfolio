@@ -4,11 +4,10 @@ import {
   ProjectH3,
   ProjectBody,
   ProjectList,
+  ProjectNumberedRows,
   ProjectTable,
   ProjectFeature,
-  ProjectChallenge,
-  ProjectQuote,
-  ProjectImage,
+  ProjectImageStrip,
 } from "@/components";
 
 export const metadata = {
@@ -16,6 +15,7 @@ export const metadata = {
   kicker: "Legacy",
   description:
     "Discovering the reasons behind Legacy's sperm freezing page's low performance and why education is important when selling a high life-impact product.",
+  heroImage: "/images/legacy-freeze.png",
   intro: (
     <>
       Legacy&rsquo;s sperm freezing page had low conversion and high bounce
@@ -105,33 +105,34 @@ export function Content() {
           a marketing strategy focused on awareness. The content wasn&rsquo;t
           meeting expectations.
         </ProjectBody>
-        <ProjectChallenge title="1. Value proposition">
-          <ProjectBody>
-            &ldquo;Avoid the clinic&rdquo; answers the &ldquo;how&rdquo;,{" "}
-            <strong>but not the &ldquo;why.&rdquo;</strong> Knowing you can do it
-            from home is useful, but not the main driver at this stage of
-            awareness.
-          </ProjectBody>
-        </ProjectChallenge>
-        <ProjectChallenge title="2. Pricing shown too early">
-          <ProjectBody>
-            At this stage, the customer doesn&rsquo;t even know what sperm
-            freezing is. Price isn&rsquo;t the main concern. Previous pricing
-            experiments showed high price elasticity:{" "}
-            <strong>
-              customers are willing to pay if they believe the solution is right
-              for them.
-            </strong>
-          </ProjectBody>
-        </ProjectChallenge>
-        <ProjectChallenge title="3. Wrong imagery">
-          <ProjectBody>
-            Showing the physical kit as the hero doesn&rsquo;t communicate what
-            Legacy is actually selling:{" "}
-            <strong>preserving your ability to have children.</strong>
-          </ProjectBody>
-        </ProjectChallenge>
-        <ProjectImage />
+        <ProjectNumberedRows
+          rows={[
+            {
+              num: "1",
+              title: "Value proposition",
+              body: <>&ldquo;Avoid the clinic&rdquo; answers the &ldquo;how.&rdquo; It does not answer the &ldquo;why.&rdquo; Knowing you can do it from home is useful, but not the main driver at this stage of awareness.</>,
+            },
+            {
+              num: "2",
+              title: "Pricing shown too early",
+              body: <>At this stage, the customer is still learning what sperm freezing is. Price is not the main concern. Previous pricing experiments showed high price elasticity: <strong>customers are willing to pay if they believe the solution is right for them.</strong></>,
+            },
+            {
+              num: "3",
+              title: "Wrong imagery",
+              body: <>Showing the physical kit as the hero doesn&rsquo;t communicate what Legacy is actually selling: <strong>preserving your ability to have children.</strong></>,
+            },
+          ]}
+        />
+        <ProjectImageStrip
+          variant="landscape"
+          images={[
+            {
+              src: "/images/cvaAHjrKY6j4QYjq0ViEvuy29s.png",
+              caption: "The previous freezing page — product-forward, ecommerce playbook.",
+            },
+          ]}
+        />
         <ProjectH3>The education gap</ProjectH3>
         <ProjectBody>
           The page rarely educated. Most answers to user questions appeared late
@@ -142,17 +143,38 @@ export function Content() {
           items={[
             <><strong>More than half</strong> of men don&rsquo;t know what affects their fertility</>,
             <><strong>70%</strong> of people overestimate the age at which male fertility decline begins</>,
-            <><strong>72%</strong> of people believe that taking testosterone improves a person&rsquo;s fertility — it actually brings it down to 0</>,
+            <><strong>72%</strong> of people believe that taking testosterone improves a person&rsquo;s fertility (it actually brings it down to 0)</>,
           ]}
         />
       </ScrollReveal>
 
       <ScrollReveal>
         <ProjectH2>The hypothesis</ProjectH2>
-        <ProjectQuote>
+        <ProjectBody>
           By focusing on education and human stories, AOV &amp; conversion will
           go up. Sell the dream of having children, not a green box.
-        </ProjectQuote>
+        </ProjectBody>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <ProjectH2>The conversion funnel</ProjectH2>
+        <ProjectBody>
+          The previous page only served customers who already knew what sperm
+          freezing was and were ready to buy. Most visitors arriving from social
+          campaigns were nowhere near that stage.
+        </ProjectBody>
+        <ProjectBody>
+          The redesign needed to address all five stages in a single page.
+        </ProjectBody>
+        <ProjectList
+          items={[
+            "Unaware — the customer doesn't know about the problem",
+            "Problem aware — the customer knows the problem but not the solution",
+            "Solution aware — the customer understands there is a solution but not how to access it",
+            "Product aware — the customer knows the product but hasn't chosen one",
+            "Most aware — the customer is ready to purchase",
+          ]}
+        />
       </ScrollReveal>
 
       <ScrollReveal>
@@ -167,13 +189,53 @@ export function Content() {
         />
         <ProjectFeature
           title="The product grid"
-          body="We broke down bundles by function instead of contents. 88% of users already referred to bundles by their timeline. 62% preferred first-degree language. 25% were actively turned off by flowery copy. Legacy was selling insurance, not t-shirts."
+          body="We broke down bundles by function instead of contents. 88% of users already referred to bundles by their timeline. 62% preferred first-degree language. 25% were actively turned off by flowery copy. Legacy was selling a high-consideration healthcare product. Standard ecommerce product cards did not apply."
         />
         <ProjectFeature
           title="How it works"
           body="We distilled the process into 5 steps to show it's quick and straightforward. Asking someone to trust you with their genetic material is a serious ask, so logistics and security questions needed clear, upfront answers."
         />
-        <ProjectImage />
+        <ProjectImageStrip
+          variant="landscape"
+          images={[
+            {
+              src: "/images/gJ8kktTtsa6xxNqV6GcVRsN1Zo.png",
+              caption: "Before — the old page.",
+            },
+            {
+              src: "/images/UfSF1ejAgsHYP8DepxN8ifSD2CY.png",
+              caption: "After — education-first redesign.",
+            },
+            {
+              src: "/images/cKuwSBaNfOnHEtlutGZq8v9LqXA.png",
+              caption: '"You should freeze your sperm if…" — plain-language use cases addressing the unaware stage.',
+            },
+            {
+              src: "/images/aUP3a1Zu9Z7x2RQkWV9inIJxmI.png",
+              caption: "How to freeze your sperm with Legacy — 5 steps.",
+            },
+            {
+              src: "/images/Z3X9dYxUml41Uc6Mj9E2nveT6s.png",
+              caption: "The science of sperm freezing.",
+            },
+            {
+              src: "/images/BmBUjzFk6VNdnFEg4Mbn1klMfY.png",
+              caption: "Comparison to clinics.",
+            },
+            {
+              src: "/images/Wd8ed8tORKYtRJoLuJ4vEjZOZtc.png",
+              caption: "Persona journeys.",
+            },
+            {
+              src: "/images/LMQAvtSpzGbe1aMpCG96xxlkris.png",
+              caption: "Two pathways for different mental models — self-directed and guided.",
+            },
+            {
+              src: "/images/kVBCfFKABeM9XxInoPS0FPsfoU.png",
+              caption: "Bundle comparison grid — by timeline and family size.",
+            },
+          ]}
+        />
       </ScrollReveal>
 
       <ScrollReveal>
@@ -194,9 +256,9 @@ export function Content() {
         <ProjectH3>Further improvements</ProjectH3>
         <ProjectList
           items={[
-            "We still haven't cracked convincing potential proactive freezers",
-            "Need to figure out whether stats and data about fertility decline resonates with users",
-            "Need to consider whether to mention testing on this page, balancing user needs versus business goals",
+            "Proactive freezers remain unconvinced — users with no immediate medical reason did not see themselves in the page",
+            "The role of fertility decline statistics in messaging is unresolved",
+            "Testing as an entry point needs consideration — whether to mention it here depends on whether we prioritize freezing or allow users to self-select",
           ]}
         />
       </ScrollReveal>

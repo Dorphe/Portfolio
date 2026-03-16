@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function ProjectNav({ label = "Mathieu Preston" }: { label?: string }) {
+export function ProjectNav({ label = "Back" }: { label?: string }) {
   return (
     <div className="project-nav">
       <Link href="/" className="project-nav-link">

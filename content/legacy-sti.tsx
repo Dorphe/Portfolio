@@ -1,10 +1,10 @@
 import {
-  ProjectSection,
+  ScrollReveal,
   ProjectH2,
-  ProjectH3,
   ProjectBody,
   ProjectList,
-  ProjectQuote,
+  ProjectLabel,
+  ProjectImageStrip,
 } from "@/components";
 
 export const metadata = {
@@ -12,6 +12,7 @@ export const metadata = {
   kicker: "Legacy",
   description:
     "Designing STI test results for Legacy — navigating the challenge of binary medical results where standard semantic visual patterns create confusion.",
+  heroImage: "/images/legacy-sti.png",
   intro: (
     <>
       STI testing is required by law in many US states before freezing sperm. The
@@ -24,7 +25,7 @@ export const metadata = {
 export function Content() {
   return (
     <>
-      <ProjectSection>
+      <ScrollReveal>
         <ProjectH2>The problem</ProjectH2>
         <ProjectBody>
           In early 2022, Legacy expanded its offerings to include STI testing,
@@ -40,40 +41,48 @@ export function Content() {
           <em>positive</em>&hellip; but it&rsquo;s not good news. In any other
           context, ✅ = 😀. However, in this case, it&rsquo;s very much ☹️.
         </ProjectBody>
-      </ProjectSection>
+      </ScrollReveal>
 
-      <ProjectSection>
+      <ScrollReveal>
         <ProjectH2>The hypothesis</ProjectH2>
-        <ProjectQuote>
+        <ProjectBody>
           Associating positive semantic visuals with a negative emotion creates
           confusion.
-        </ProjectQuote>
-      </ProjectSection>
+        </ProjectBody>
+      </ScrollReveal>
 
-      <ProjectSection>
+      <ScrollReveal>
         <ProjectH2>The process</ProjectH2>
         <ProjectBody>
           I tested iterations with green/red and icon systems. Reception was
           poor. Users were confused about whether a &ldquo;positive&rdquo; result
           was good or bad news.
         </ProjectBody>
+        <ProjectImageStrip
+          variant="landscape"
+          images={[
+            {
+              src: "/images/HSyoFxue606FlVVSYwIKv1ksb8.png",
+              caption: "Iterations tested — color-coded and icon-based designs.",
+            },
+          ]}
+        />
         <ProjectBody>
           I consulted with healthcare experts and studied how traditional lab
           results handle this. Clinical test results are deliberately plain: text
-          only, no color-coding. The semantic weight of colors is culturally
-          conditioned, not medically appropriate.
+          only, no color-coding. Color-coding carries cultural meaning that
+          does not map cleanly to medical outcomes.
         </ProjectBody>
-      </ProjectSection>
+      </ScrollReveal>
 
-      <ProjectSection>
+      <ScrollReveal>
         <ProjectH2>The result</ProjectH2>
         <ProjectBody>
           The final design follows the format of a traditional lab result sheet.
-          It may look less polished at first glance, but it&rsquo;s familiar to
-          both clinicians and patients, and avoids the semantic confusion
-          entirely.
+          It is familiar to both clinicians and patients and avoids the semantic
+          confusion entirely.
         </ProjectBody>
-        <ProjectH3>Key design decisions</ProjectH3>
+        <ProjectLabel>Key design decisions</ProjectLabel>
         <ProjectList
           items={[
             <><strong>No color-coded status indicators.</strong> Results are communicated through plain text, not color</>,
@@ -82,7 +91,22 @@ export function Content() {
             <><strong>Contextual recommendations.</strong> Different guidance shown depending on whether a result is negative, positive, or inconclusive</>,
           ]}
         />
-      </ProjectSection>
+        <ProjectImageStrip
+          variant="landscape"
+          images={[
+            {
+              src: "/images/IcmhUA2LjM7b6yYStj9YJ3LVuiU.png",
+              caption: "Final result sheet — clinical table format.",
+            },
+            {
+              src: "/images/S9DXm5ie7NH8QaLhBE0UwMKRY9Q.png",
+            },
+            {
+              src: "/images/8XixmmhKYXMVx8sweAsmDkQfDWU.png",
+            },
+          ]}
+        />
+      </ScrollReveal>
     </>
   );
 }

@@ -14,6 +14,7 @@ export interface ProjectMeta {
   description: string;
   intro: ReactNode;
   navLabel?: string;
+  heroImage?: string;
 }
 
 export interface ProjectModule {

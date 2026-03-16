@@ -4,8 +4,8 @@ import {
   ProjectH3,
   ProjectBody,
   ProjectList,
+  ProjectLabel,
   ProjectFeature,
-  ProjectChallenge,
   ProjectImage,
 } from "@/components";
 
@@ -14,6 +14,7 @@ export const metadata = {
   kicker: "Ubisoft",
   description:
     "New non-linear scriptwriting tool at Ubisoft, propelling games forward with player choices and branching narratives. Oasis helped propel the Assassin's Creed franchise to 200M total sales.",
+  heroImage: "/images/ubi-oasis.png",
   intro: (
     <>
       Video game stories were traditionally written linearly, like a screenplay.
@@ -28,7 +29,8 @@ export function Content() {
   return (
     <>
       <ScrollReveal>
-        <ProjectH2>The objective</ProjectH2>
+        <ProjectLabel>The context</ProjectLabel>
+        <ProjectH2>A new tool for non-linear storytelling</ProjectH2>
         <ProjectBody>
           Empower writers and narrative designers to create modular, non-linear
           stories.
@@ -44,7 +46,8 @@ export function Content() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <ProjectH2>Chapter 1 — What is non-linear storytelling?</ProjectH2>
+        <ProjectLabel>Chapter 1</ProjectLabel>
+        <ProjectH2>What is non-linear storytelling?</ProjectH2>
         <ProjectBody>
           Before Oasis, writers worked the same way they would for film or TV: a
           scene, actors, lines, top to bottom.
@@ -58,20 +61,20 @@ export function Content() {
         <ProjectBody>
           The concept is about giving players agency over how the story unfolds.
         </ProjectBody>
-        <ProjectChallenge title="The structural shift">
-          <ProjectBody>
-            A non-linear script looks more like a flowchart than a screenplay.
-            Writers isolate dialogue line by line so lines can flow into one
-            another based on game state. Lines connect to form scenes. Scenes
-            contain all permutations of a dialogue tree. Scenes embed into other
-            scenes to form the larger narrative.
-          </ProjectBody>
-        </ProjectChallenge>
+        <ProjectH3>The structural shift</ProjectH3>
+        <ProjectBody>
+          A non-linear script looks more like a flowchart than a screenplay.
+          Writers isolate dialogue line by line so lines can flow into one
+          another based on game state. Lines connect to form scenes. Scenes
+          contain all permutations of a dialogue tree. Scenes embed into other
+          scenes to form the larger narrative.
+        </ProjectBody>
         <ProjectImage />
       </ScrollReveal>
 
       <ScrollReveal>
-        <ProjectH2>Chapter 2 — A paradigm shift for writers</ProjectH2>
+        <ProjectLabel>Chapter 2</ProjectLabel>
+        <ProjectH2>A paradigm shift for writers</ProjectH2>
         <ProjectBody>
           Writers and narrative designers aren&rsquo;t necessarily technical.
           They&rsquo;d been working the same way for decades, and non-linear
@@ -93,7 +96,8 @@ export function Content() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <ProjectH2>Chapter 3 — The state of design at the time</ProjectH2>
+        <ProjectLabel>Chapter 3</ProjectLabel>
+        <ProjectH2>Establishing design in an engineering-led team</ProjectH2>
         <ProjectBody>
           Ubisoft&rsquo;s internal tools department is engineering-led. When I
           joined, there were 3 UX researchers and no designers. The team was
@@ -102,43 +106,41 @@ export function Content() {
         </ProjectBody>
         <ProjectBody>
           I was hired specifically for the biggest shift in Ubisoft&rsquo;s
-          tooling strategy, and getting the team dynamics right was going to
-          matter as much as the product itself.
+          tooling strategy. Establishing a working relationship with the
+          engineering team mattered as much as the product decisions.
         </ProjectBody>
-        <ProjectChallenge title="Embedding into the team">
-          <ProjectBody>
-            The initial dynamic was consultative. I pushed to be embedded into
-            the development team to establish a real working relationship. Given
-            the culture, there was a risk of being seen as a pixel pusher.
-            Despite having no experience with cross-functional design
-            collaboration, the team was open to it.
-          </ProjectBody>
-        </ProjectChallenge>
-        <ProjectChallenge title="Proving value through results">
-          <ProjectBody>
-            Before our involvement, the tool embedded lines into a traditional
-            script structure. There had been vague feedback but no structured
-            validation. We put a test plan together and gathered actionable data.
-            The results shifted the team&rsquo;s perspective, and we continued
-            validating hypotheses until we arrived at the node-based editor the
-            tool is today.
-          </ProjectBody>
-        </ProjectChallenge>
-        <ProjectChallenge title="Scaling the design team">
-          <ProjectBody>
-            Word spread. More development teams started requesting design
-            support. When I joined, the design team was 4 people. By the end of
-            my 3-year tenure, it had grown to 20, and we were building a shared
-            design system for both desktop and web tools.
-          </ProjectBody>
-        </ProjectChallenge>
+        <ProjectH3>Embedding into the team</ProjectH3>
+        <ProjectBody>
+          The initial dynamic was consultative. I pushed to be embedded into
+          the development team to build a real working relationship. Given the
+          culture, there was a risk of being seen as a pixel pusher. The team
+          had no prior experience with cross-functional design collaboration
+          and was open to it.
+        </ProjectBody>
+        <ProjectH3>Proving value through results</ProjectH3>
+        <ProjectBody>
+          Before our involvement, the tool embedded lines into a traditional
+          script structure. There had been vague feedback but no structured
+          validation. We put a test plan together and gathered actionable data.
+          The results shifted the team&rsquo;s perspective, and we continued
+          validating hypotheses until we arrived at the node-based editor the
+          tool is today.
+        </ProjectBody>
+        <ProjectH3>Scaling the design team</ProjectH3>
+        <ProjectBody>
+          More development teams started requesting design support. When I
+          joined, the design team was 4 people. By the end of my 3-year
+          tenure, it had grown to 20, and we were building a shared design
+          system for both desktop and web tools.
+        </ProjectBody>
       </ScrollReveal>
 
       <ScrollReveal>
-        <ProjectH2>Conclusion</ProjectH2>
+        <ProjectLabel>The outcome</ProjectLabel>
+        <ProjectH2>200M Assassin&rsquo;s Creed sales</ProjectH2>
         <ProjectBody>
-          Oasis was a success on both fronts: organizational and commercial.
-          Ubisoft&rsquo;s shift to non-linear storytelling helped{" "}
+          Oasis delivered on both fronts: the tool shipped, and Ubisoft&rsquo;s
+          shift to non-linear storytelling helped{" "}
           <strong>
             propel the Assassin&rsquo;s Creed franchise to 200M total sales.
           </strong>

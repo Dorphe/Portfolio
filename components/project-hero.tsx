@@ -4,9 +4,10 @@ interface ProjectHeroProps {
   kicker: string;
   title: string;
   intro: ReactNode;
+  image?: string;
 }
 
-export function ProjectHero({ kicker, title, intro }: ProjectHeroProps) {
+export function ProjectHero({ kicker, title, intro, image }: ProjectHeroProps) {
   return (
     <header className="project-hero project-hero--split">
       <div className="project-hero-inner">
@@ -15,7 +16,11 @@ export function ProjectHero({ kicker, title, intro }: ProjectHeroProps) {
           <h1 className="project-h1">{title}</h1>
           <p className="project-intro">{intro}</p>
         </div>
-        <div className="project-hero-image" aria-hidden="true" />
+        <div
+          className="project-hero-image"
+          aria-hidden="true"
+          style={image ? { backgroundImage: `url(${image})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" } : undefined}
+        />
       </div>
     </header>
   );

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ProjectCard } from "@/components";
 
 const projects = [
@@ -29,25 +30,25 @@ const projects = [
     image: "/images/legacy-quiz.png",
     ariaLabel: "Legacy — Personalized Recommendations",
   },
+];
+
+const olderWorks = [
   {
     href: "/projects/legacy-sti",
     company: "LEGACY",
     title: "STI TEST RESULTS",
-    image: "/images/legacy-sti.png",
     ariaLabel: "Legacy — STI Test Results",
   },
   {
     href: "/projects/ubi-oasis",
     company: "UBISOFT",
     title: "OASIS",
-    image: "/images/ubi-oasis.png",
     ariaLabel: "Ubisoft — Oasis",
   },
   {
     href: "/projects/ubi-portfolio",
     company: "UBISOFT",
     title: "ASSETS SHARING PLATFORM",
-    image: "/images/ubi-portfolio.jpg",
     ariaLabel: "Ubisoft — Assets Sharing Platform",
   },
 ];
@@ -121,6 +122,21 @@ export default function HomePage() {
         {projects.map((p) => (
           <ProjectCard key={p.href} {...p} />
         ))}
+
+        <section className="older-works">
+          <span className="older-works-label">Older works</span>
+          {olderWorks.map((p) => (
+            <Link
+              key={p.href}
+              href={p.href}
+              className="older-work-item"
+              aria-label={p.ariaLabel}
+            >
+              <span className="older-work-company">{p.company}</span>
+              <span className="older-work-title">{p.title}</span>
+            </Link>
+          ))}
+        </section>
       </main>
     </div>
   );
